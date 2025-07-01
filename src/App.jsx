@@ -11,9 +11,9 @@ import Footer from './Components/Footer';
 function App() { 
   return (
     <>
-    <section id="home"><Home/></section>
+     <section id="home"><Home/></section>
     <section id="service"><Service/></section>
-    <section id="gallery"><Gallery/></section>
+    <section id="gallery"><Gallery/></section> 
     <Screen/>
     <Spotlight/>
      <section id="team"><Team/></section>

@@ -1,18 +1,59 @@
 import React from 'react';
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, IconButton, Typography } from "@mui/material";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Frame from '../assets/testimonial/Frame.png'
-import pic5 from '../assets/home/pic5.png';
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+
 
 const Testimonial = () => {
+
+
+// arrows
+  const NextArrow = ({ onClick }) => (
+  <IconButton
+    onClick={onClick}
+    sx={{
+      position: "absolute",
+      top: "40%",
+      right: 0,
+      zIndex: 2,
+      color: "#990000",
+      backgroundColor: "white",
+      '&:hover': { backgroundColor: "#f5f5f5" }
+    }}
+  >
+    <ArrowForwardIos />
+  </IconButton>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <IconButton
+    onClick={onClick}
+    sx={{
+      position: "absolute",
+      top: "40%",
+      left: 0,
+      zIndex: 2,
+      color: "#990000",
+      backgroundColor: "white",
+      '&:hover': { backgroundColor: "#f5f5f5" }
+    }}
+  >
+    <ArrowBackIos />
+  </IconButton>
+);
+
+
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3, // Number of cards shown 
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1600, // extra large 
@@ -73,6 +114,11 @@ const Testimonial = () => {
     }
   ]
 
+  
+
+
+
+
   return (
     <>
       <Typography
@@ -109,7 +155,7 @@ const Testimonial = () => {
         Voices of Celebration
       </Typography>
 
-      <Box sx={{ width: { xs: "90%", md: "97%" }, mt: 4, marginLeft: { xs: "10px" } }}>
+      <Box sx={{ width: { xs: "90%", md: "97%" }, mt: 4, marginLeft: { xs: "10px",md:"26px" } }}>
         <Slider {...settings}>
           {data.map((item, i) => (
             <Box key={i} px={1}>
@@ -130,9 +176,6 @@ const Testimonial = () => {
       </Box>
 
 
-      {/* pic */}
-
-      <img src={pic5} width="100%" />
     </>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import team1 from "../assets/team/team1.png";
-import team2 from "../assets/team/team2.png";
-import team3 from "../assets/team/team3.png";
+import team1 from "../assets/team/t1.jpg";
+import team2 from "../assets/team/t2.jpg";
+import team3 from "../assets/team/t3.jpg";
 import { Box, Typography } from "@mui/material";
 
 // 👇 Single card with isolated hover effect

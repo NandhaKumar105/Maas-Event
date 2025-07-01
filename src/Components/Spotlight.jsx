@@ -16,6 +16,8 @@ const Spotlight = () => {
 
   return (
     <>
+     <Box sx={{ py: 6, px: 2, textAlign: 'center' }}>
+
       {/* spotlight */}
 
       <Box
@@ -24,7 +26,7 @@ const Spotlight = () => {
           flexDirection: { xs: "column", md: "row", sm: "row" }, // stack on mobile, row on desktop
           justifyContent: "space-around",
           alignItems: "center",
-          minHeight: "75vh",
+          // minHeight: "75vh",
           padding: { xs: "20px", sm: "30px", md: "40px" },
           gap: { xs: 2, md: 4 }, // space between items
           textAlign: { xs: "center", md: "left" }, // center text on small screens
@@ -43,11 +45,11 @@ const Spotlight = () => {
             fontFamily: "Malevolent, cursive",
             color: "black",
             fontSize: {
-              xs: "2rem",
-              sm: "2.5rem",
-              md: "3rem",
-              lg: "4rem",
-              xl: "4.5rem",
+              xs: "3rem",
+              sm: "3.5rem",
+              md: "4.5rem",
+              lg: "5.5rem",
+              xl: "5.5rem",
             },
           }}>
           Spotlight
@@ -64,11 +66,11 @@ const Spotlight = () => {
             fontFamily: "Georgia, serif",
             color: "#990000",
             fontSize: {
-              xs: "2rem",
-              sm: "2.5rem",
-              md: "3.5rem",
-              lg: "4rem",
-              xl: "4.5rem",
+              xs: "3rem",
+              sm: "3.5rem",
+              md: "4.5rem",
+              lg: "5.5rem",
+              xl: "5.5rem",
             },
             marginRight: { md: "50px", sm: "0px" }
           }}>
@@ -86,15 +88,16 @@ const Spotlight = () => {
             fontFamily: "Malevolent, cursive",
             color: "black",
             fontSize: {
-              xs: "2rem",
-              sm: "2.5rem",
-              md: "3rem",
-              lg: "3.5rem",
-              xl: "4rem",
+              xs: "3rem",
+              sm: "3.5rem",
+              md: "4.5rem",
+              lg: "5.5rem",
+              xl: "5.5rem",
             },
           }}>
           Picks
         </MotionTypography>
+      </Box>
 
         <Box
           sx={{
@@ -145,3 +148,5 @@ const Spotlight = () => {
 }
 
 export default Spotlight
+
+

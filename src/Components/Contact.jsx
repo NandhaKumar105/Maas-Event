@@ -7,8 +7,8 @@ const Contact = () => {
 
 
       <Box sx={{
-        width: { xs: "97%", md: "40%" }, border: "2px grey solid", borderRadius: "8px", marginLeft: { xs: "5px", md: "27%" },
-        marginBottom: "-40px", zIndex: "2", position: "relative", backgroundColor: "white"
+        width: { xs: "97%", md: "55%" }, border: "2px grey solid", borderRadius: "8px", marginLeft: { xs: "5px", md: "22%" },
+        marginBottom: "-40px", zIndex: "2", position: "relative", backgroundColor: "white",marginTop:"20%"
       }}>
 
         <Typography
