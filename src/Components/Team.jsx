@@ -5,7 +5,7 @@ import team2 from "../assets/team/t2.jpg";
 import team3 from "../assets/team/t3.jpg";
 import { Box, Typography } from "@mui/material";
 
-// 👇 Single card with isolated hover effect
+//  Single card with isolated hover effect
 const TeamCard = ({ img }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
