@@ -1,152 +1,135 @@
-import React, { useRef, useState } from 'react';
-import { AppBar, Box, Button, Card, CardContent, Drawer, duration, IconButton, List, ListItem, ListItemText, Stack, Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { motion, px, useInView, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import sle1 from '../assets/spotevent/sle1.png'
-import sle12 from '../assets/spotevent/sle12.png'
-import sle13 from '../assets/spotevent/sle13.png'
-import sle6 from '../assets/spotevent/sle6.png'
-import sle5 from '../assets/spotevent/sle5.png'
+import React from 'react';
+import { Box, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import img1 from '../assets/spotevent/sle1.png';
+import img2 from '../assets/spotevent/sle2.png';
+import img3 from '../assets/spotevent/sle3.png';
+import img4 from '../assets/spotevent/sle4.png';
+import img5 from '../assets/spotevent/sle5.png';
+import img6 from '../assets/spotevent/sle6.png';
+import img7 from '../assets/spotevent/sle7.png';
+import img8 from '../assets/spotevent/sle8.png';
+import img9 from '../assets/spotevent/sle9.png';
+import img10 from '../assets/spotevent/sle10.png';
+import img12 from '../assets/spotevent/sle12.png';
+import img14 from '../assets/spotevent/sle14.png';
+import img13 from '../assets/spotevent/sle13.png';
 
-const Spotlight = () => {
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img12, img14, img13];
 
-  // spotlight
+const getRandomStyle = () => {
+  const top = 0 + Math.random() * 60;
+  const left = 5 + Math.random() * 85;
+  // const rotate = (Math.random() - 0.5) * 20;
+  return { top, left };
+};
 
-  const spot = [{ sle: sle1 }, { sle: sle6 }, { sle: sle13 }, { sle: sle12 }, { sle: sle5 }]
-  const MotionTypography = motion(Typography);
+const MotionTypography = motion(Typography);
 
+const SpotlightCollage = () => {
   return (
-    <>
-     <Box sx={{ py: 6, px: 2, textAlign: 'center' }}>
+    <Box
+      sx={{
+        position: 'relative',
+        height: '100vh',
+        overflow: 'hidden',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        px: 2,
+      }}
+    >
+      {/* Background scattered images */}
+      {images.map((img, index) => {
+        const { top, left, rotate } = getRandomStyle();
+        return (
+          <motion.img
+            key={index}
+            src={img}
+            alt={`bg-${index}`}
+            initial={{ opacity: 0, y: 10 }}
+            whileHover={{
+              opacity: 1,
+              y: -20,
 
-      {/* spotlight */}
+              transition: { duration: 0.1 },
+            }}
+            style={{
+              position: 'absolute',
+              top: `${top}%`,
+              left: `${left}%`,
+              width: '200px',
+              height: 'auto',
+              transform: `rotate(${rotate}deg)`,
+              zIndex: 1,
+              cursor: 'pointer',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+              transition: 'opacity 0.4s ease',
+              rotate: "5deg",
+            }}
+          />
+        );
+      })}
 
+      {/*  Text */}
       <Box
         sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row", sm: "row" }, // stack on mobile, row on desktop
-          justifyContent: "space-around",
-          alignItems: "center",
-          // minHeight: "75vh",
-          padding: { xs: "20px", sm: "30px", md: "40px" },
-          gap: { xs: 2, md: 4 }, // space between items
-          textAlign: { xs: "center", md: "left" }, // center text on small screens
-          flexWrap: "wrap",
-        }}>
-
-
-        {/* Spotlight - From Left */}
+          position: 'relative',
+          zIndex: 5,
+          textAlign: 'center',
+        }}
+      >
+        {/* Spotlight left */}
         <MotionTypography
-          variant="h2"
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.5 }}
+          initial={{ x: -150, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false }}
           sx={{
-            fontFamily: "Malevolent, cursive",
-            color: "black",
-            fontSize: {
-              xs: "3rem",
-              sm: "3.5rem",
-              md: "4.5rem",
-              lg: "5.5rem",
-              xl: "5.5rem",
-            },
-          }}>
+            fontFamily: 'Malevolent, cursive',
+            fontSize: { xs: '3rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem', xl: '6.5rem' },
+            color: 'black',
+            marginRight: { md: "300px", xs: "0px", sm: "300px" }
+          }}
+        >
           Spotlight
         </MotionTypography>
 
-        {/* Event - From Right */}
+        {/* Event - center*/}
         <MotionTypography
-          variant="h2"
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: false, amount: 0.5 }}
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          viewport={{ once: false }}
           sx={{
-            fontFamily: "Georgia, serif",
-            color: "#990000",
-            fontSize: {
-              xs: "3rem",
-              sm: "3.5rem",
-              md: "4.5rem",
-              lg: "5.5rem",
-              xl: "5.5rem",
-            },
-            marginRight: { md: "50px", sm: "0px" }
-          }}>
+            fontFamily: 'Georgia, serif',
+            fontSize: { xs: '2.5rem', sm: '3rem', md: '4rem', lg: '5rem' },
+            color: '#990000',
+          }}
+        >
           Event
         </MotionTypography>
 
-        {/* Picks - From Right */}
+        {/* Pics - right */}
         <MotionTypography
-          variant="h2"
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: false, amount: 0.5 }}
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          viewport={{ once: false }}
           sx={{
-            fontFamily: "Malevolent, cursive",
-            color: "black",
-            fontSize: {
-              xs: "3rem",
-              sm: "3.5rem",
-              md: "4.5rem",
-              lg: "5.5rem",
-              xl: "5.5rem",
-            },
-          }}>
-          Picks
+            fontFamily: 'Malevolent, cursive',
+            fontSize: { xs: '3rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem', xl: '6.5rem' },
+            color: 'black',
+            mt: 1,
+            marginLeft: { md: "300px", xs: "0px", sm: "300px" }
+          }}
+        >
+          Pics
         </MotionTypography>
       </Box>
+    </Box>
+  );
+};
 
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",          // center on all screens
-            alignItems: "center",
-            gap: { xs: 2, sm: 3, md: 4, lg: 5, xl: 6 },       // responsive spacing between boxes
-            p: { xs: 1, sm: 2, md: 3, lg: 5, xl: 6 },
-            // maxWidth: "1200px",  //  Limit width on large screens
-            // margin: "0 auto",
-          }}>
-
-          {spot.map((spot, i) => (
-            <Box
-              key={i}
-              sx={{
-                position: "relative",
-                overflow: "hidden",
-                borderRadius: "10px",
-                transition: "transform 0.3s ease-in-out",
-
-                "&:hover img": {
-                  opacity: 1,
-                  transform: "scale(1.05)",
-                },
-                "& img": {
-                  transition: "all 0.3s ease-in-out",
-                  opacity: 0,
-                },
-              }}>
-
-              <img
-                src={spot.sle}
-                alt={`spot ${i}`}
-                width="100%"
-                style={{
-                  maxWidth: "200px",            // limits max width
-                  height: "auto",               // keeps image ratio
-                  display: "block",
-                }} />
-            </Box>
-          ))}
-        </Box>
-      </Box>
-    </>
-  )
-}
-
-export default Spotlight
-
+export default SpotlightCollage;
 

@@ -11,14 +11,14 @@ import Footer from './Components/Footer';
 function App() { 
   return (
     <>
-     <section id="home"><Home/></section>
-    <section id="service"><Service/></section>
+    <section id="home"><Home/></section>
+     <section id="service"><Service/></section>
     <section id="gallery"><Gallery/></section> 
-    <Screen/>
+     <Screen/>
     <Spotlight/>
-     <section id="team"><Team/></section>
+   <section id="team"><Team/></section>
     <section id="testimonial"><Testimonial/></section>
-    <section id="contact"><Contact/></section>
+     <section id="contact"><Contact/></section>
     <Footer/>
      
     </>

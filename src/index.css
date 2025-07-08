@@ -34,3 +34,8 @@ select:focus {
   border-color: #ced4da !important;
   
 }
+
+body
+{
+  background-color: #FFF8ED;
+}

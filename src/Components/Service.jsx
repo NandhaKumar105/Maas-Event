@@ -1,112 +1,114 @@
-import React, { useRef, useState } from 'react';
-import { AppBar, Box, Button, Card, CardContent, Drawer, duration, IconButton, List, ListItem, ListItemText, Stack, Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { motion, px, useInView, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import s1 from '../assets/service/s1.png'
-import s2 from '../assets/service/s2.png'
-import s3 from '../assets/service/s3.png'
-import s4 from '../assets/service/s4.png'
-import s5 from '../assets/service/s5.png'
-import s6 from '../assets/service/s6.png'
-import s7 from '../assets/service/s7.png'
-import s8 from '../assets/service/s8.png'
-import s9 from '../assets/service/s9.png'
-import s10 from '../assets/service/s10.png'
-import s11 from '../assets/service/s11.png'
-import s12 from '../assets/service/s12.png'
+import React, { useEffect, useRef, useState } from 'react';
+import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import { motion, useInView } from 'framer-motion';
+import s1 from '../assets/service/s1.png';
+import s2 from '../assets/service/s2.png';
+import s3 from '../assets/service/s3.png';
+import s4 from '../assets/service/s4.png';
+import s5 from '../assets/service/s5.png';
+import s6 from '../assets/service/s6.png';
+import s7 from '../assets/service/s7.png';
+import s8 from '../assets/service/s8.png';
+import s9 from '../assets/service/s9.png';
+import s10 from '../assets/service/s10.png';
+import s11 from '../assets/service/s11.png';
+import s12 from '../assets/service/s12.png';
 
+const services = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12];
 
 const Service = () => {
-
-  // service event
-  const service = [
-    { img: s1 }, { img: s2 }, { img: s3 }, { img: s4 }, { img: s5 }, { img: s6 }, { img: s7 }, { img: s8 }, { img: s9 }, { img: s10 }, { img: s11 }, { img: s12 }];
-
-  // Split array into 2 rows
-  const firstrow = service.slice(0, 6);
-  const secondrow = service.slice(6, 12);
-
-  const ServiceImage = ({ a, i }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, {
-      threshold: 1.0, // Trigger when 100% of image is visible
-      triggerOnce: false // Set to true if you want animation only once
-    })
-
-    // animation for royal service
-
-    return (
-
-      <motion.div
-        ref={ref}
-        key={i}
-        initial={{ opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50 }}
-        animate={isInView ? { opacity: 1, translateX: 0, translateY: 0 } : {}}
-        transition={{ duration: 0.3, delay: i * 0.2 }}
-        style={{
-          flex: '0 0 auto',
-          margin: '10px'
-        }}>
-
-        <img src={a.img} alt={`service-${i}`} style={{ width: "170px", height: "auto" }} />
-      </motion.div>
-    )
-  }
-
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { threshold: 1.0 });
+  const [spread, setSpread] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+  useEffect(() => {
+    if (isInView) {
+      setSpread(false); // Reset
+      const timer = setTimeout(() => setSpread(true), 1500); // Delay for effect
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setSpread(true), 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <>
-
-      <Box>
-        <Typography variant='h6' sx={{
-          fontFamily: "Malevolent",
-          fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem", lg: "6rem" },
-          color: "#a00000",
-          textAlign: { xs: "center", md: "left" },
-          maxWidth: { xs: "100%", md: "50%" },
-          marginLeft: { lg: "6%", xs: "0%" },
-          letterSpacing: "8px",
-          marginTop:{xs:"80px",md:"0px"}
-        }}>ROYAL SERVICE</Typography>
-
+      <Box ref={containerRef}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontFamily: 'Malevolent',
+            fontSize: { xs: '2.5rem', sm: '2.5rem', md: '3.5rem', lg: '6rem' },
+            color: '#a00000',
+            textAlign: { xs: 'center', md: 'left' },
+            maxWidth: { xs: '100%', md: '50%' },
+            marginLeft: { lg: '6%', xs: '0%' },
+            letterSpacing: '8px',
+            marginTop: { xs: '80px', md: '0px',sm:"0px",lg:"0px",xl:"0px" }
+          }}
+        >
+          ROYAL SERVICE
+        </Typography>
       </Box>
 
-      <Box sx={{ padding: 2 }}>
-        {/* First Row */}
+      <Box sx={{ px: 2, py: 4 }}>
         <Box
           sx={{
             display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
-            flexWrap: isMobile ? 'nowrap' : 'nowrap',
+            flexWrap: spread ? 'wrap' : 'nowrap',
             justifyContent: 'center',
-            alignItems: isMobile ? 'center' : 'stretch',
-            overflowX: isMobile ? 'visible' : 'auto',
-            marginBottom: 4}}>
+            alignItems: 'center',
+            overflowX: spread ? 'visible' : 'visible',
+            // transition: 'all 0.2s ease-in-out',
+            gap: 0,
+            maxWidth: '100%',
+          }}
+        >
+          {services.map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{
+                opacity: 0,
+                rotateZ: 20,
+                scale: 0.2,
+              }}
+              animate={{
+                opacity: 1,
+                rotateZ: spread ? 0 : -45,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.2,
+                // delay: i * 0.1,
+              }}
+              style={{
+                margin: spread ? '10px' : `0 -60px`,
+                flex: spread ? '1 0 calc(16.66% - 20px)' : '0 0 auto',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <img
+                src={img}
+                alt={`service-${i}`}
+                style={{
+                  width: isMobile ? '140px' : '170px',
+                  height: 'auto',
 
-          {firstrow.map((a, i) => (
-            <ServiceImage key={i} a={a} i={i} />
-          ))}
-        </Box>
-
-        {/* Second Row */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
-            flexWrap: isMobile ? 'nowrap' : 'nowrap',
-            justifyContent: 'center',
-            alignItems: isMobile ? 'center' : 'stretch',
-            overflowX: isMobile ? 'visible' : 'auto'}}>
-
-          {secondrow.map((a, i) => (
-            <ServiceImage key={i + 6} a={a} i={i + 6} />
+                }}
+              />
+            </motion.div>
           ))}
         </Box>
       </Box>
     </>
-  )
-}
+  );
+};
 
-export default Service
+export default Service;
+

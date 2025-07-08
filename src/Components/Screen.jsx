@@ -8,9 +8,6 @@ import screen3 from '../assets/screen/screen 03.png'
 import screen4 from '../assets/screen/screen 4.png'
 import screen5 from '../assets/screen/screen 5.png'
 
-
-
-
 const Screen = () => {
 
   //screen
@@ -25,7 +22,7 @@ const Screen = () => {
         {screen.map((s, i) => (
           <motion.div key={i} initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: i * 0.2 }} style={{ position: "sticky", top: "0", marginTop: "30px" }}>
+            transition={{ duration: 0.3, delay: i * 0.2 }} style={{ position: "sticky", top: "90px", marginTop: "30px" }}>
 
             {/* <img src={s.scr} style={{width:"70%",height:"50%",marginTop:"80px"}}/> */}
 
@@ -45,8 +42,8 @@ const Screen = () => {
                 // objectFit: "contain",
                 display: "block",
                 mx: "auto",
-               boxShadow: "0px 10px 10px 5px grey",
-               borderRadius:{lg:"15px",xs:"0px",sm:"15px"}
+                boxShadow: "0px 10px 10px 5px grey",
+                borderRadius: { lg: "15px", xs: "0px", sm: "15px" }
 
               }}
             />
