@@ -49,7 +49,7 @@ const Service = () => {
             maxWidth: { xs: '100%', md: '50%' },
             marginLeft: { lg: '6%', xs: '0%' },
             letterSpacing: '8px',
-            marginTop: { xs: '80px', md: '0px',sm:"0px",lg:"0px",xl:"0px" }
+            marginTop: { xs: '80px', md: '0px',sm:"120px",lg:"0px",xl:"0px" }
           }}
         >
           ROYAL SERVICE

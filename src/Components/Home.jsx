@@ -152,7 +152,7 @@ const Home = () => {
                     transition={{ duration: 0.5 }}
                     sx={{
                       position: 'absolute',
-                      width: '30vw',
+                      width: {xs:'80vw',md:'30vw',sm:'30vw',xl:'30vw',lg:'30vw'},
                       height: 'auto',
                       zIndex: 2,
                     }}
@@ -172,7 +172,7 @@ const Home = () => {
                     sx={{
                       position: 'relative',
                       top: '8px',
-                      width: '11vw',
+                      width: {xs:'30vw',md:'11vw',sm:'11vw',lg:'11vw',xl:'11vw'},
                       height: 'auto',
                       zIndex: 3,
                     }}
@@ -235,7 +235,7 @@ const Home = () => {
         {/* HANGING LIGHT IMAGE */}
         <Box sx={{ position: 'absolute', top: 0, right: 0, zIndex: 1, width: { xs: '100%', md: 'auto', lg: "58%" }, maxHeight: { xs: '300px', md: '600px' }, marginTop: "-10px" }}>
           <Box component={motion.img} src={light} alt="light" initial={{ opacity: 0, y: 0 }} whileInView={{ opacity: 1, y: 100 }}
-            transition={{ duration: 2 }} sx={{ width: { xs: "100%", md: "90%", xl: "100%" }, height: "auto", objectFit: "contain", marginLeft: { xs: "0", md: "10%" } }} />
+            transition={{ duration: 2 }} sx={{ width: { xs: "100%", md: "90%", xl: "100%" }, height:"auto" , objectFit: "contain", marginLeft: { xs: "0", md: "10%" } }} />
         </Box>
 
         {/* TEXT & BUTTON */}
@@ -246,7 +246,7 @@ const Home = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.5 }}
             sx={{
-              fontFamily: "Malevolent", fontSize: { xs: "2rem", sm: "2.5rem", md: "4rem", lg: "6rem", xl: "8rem" }, color: "#a00000",
+              fontFamily: "Malevolent", fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4rem", lg: "6rem", xl: "8rem" }, color: "#a00000",
               textAlign: { xs: "center", md: "left" }, maxWidth: { xs: "100%", md: "50%" }
             }}>
             Where<br />Moments<br />Become Magic <br />

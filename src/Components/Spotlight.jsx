@@ -31,7 +31,7 @@ const SpotlightCollage = () => {
     <Box
       sx={{
         position: 'relative',
-        height: '100vh',
+        height: '70vh',
         overflow: 'hidden',
         display: 'flex',
         justifyContent: 'center',
@@ -43,22 +43,27 @@ const SpotlightCollage = () => {
       {images.map((img, index) => {
         const { top, left, rotate } = getRandomStyle();
         return (
-          <motion.img
+          <Box component={motion.img}
             key={index}
             src={img}
             alt={`bg-${index}`}
             initial={{ opacity: 0, y: 10 }}
             whileHover={{
               opacity: 1,
-              y: -20,
+              y: 20,
 
               transition: { duration: 0.1 },
             }}
-            style={{
+            whileTap={{
+              opacity: 1,
+              y: 20,
+              transition: { duration: 0.5 },
+            }}
+            sx={{
               position: 'absolute',
               top: `${top}%`,
               left: `${left}%`,
-              width: '200px',
+              width: { md: '200px', lg: '200px', xl: '200px', sm: '200px', xs: '150px' },
               height: 'auto',
               transform: `rotate(${rotate}deg)`,
               zIndex: 1,
@@ -89,7 +94,7 @@ const SpotlightCollage = () => {
             fontFamily: 'Malevolent, cursive',
             fontSize: { xs: '3rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem', xl: '6.5rem' },
             color: 'black',
-            marginRight: { md: "300px", xs: "0px", sm: "300px" }
+            marginRight: { md: "300px", xs: "160px", sm: "300px" }
           }}
         >
           Spotlight
@@ -121,7 +126,7 @@ const SpotlightCollage = () => {
             fontSize: { xs: '3rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem', xl: '6.5rem' },
             color: 'black',
             mt: 1,
-            marginLeft: { md: "300px", xs: "0px", sm: "300px" }
+            marginLeft: { md: "300px", xs: "190px", sm: "300px" }
           }}
         >
           Pics
