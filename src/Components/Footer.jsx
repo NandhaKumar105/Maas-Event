@@ -1,7 +1,8 @@
 import { Box, Grid, IconButton, Typography } from '@mui/material'
 import React, { useRef } from 'react'
 import logo from '../assets/home/logo.png'
-import { Facebook, Twitter, Instagram } from '@mui/icons-material';
+import { WhatsApp, Instagram } from '@mui/icons-material';
+import RateReviewIcon from '@mui/icons-material/RateReview';
 import { motion, useInView } from 'framer-motion';
 
 const Footer = () => {
@@ -28,9 +29,9 @@ const Footer = () => {
                 <img src={logo} width={100} />
                 <Typography sx={{ fontFamily: 'Josefin Slab' }}>"Turning Dreams Into Celebration"</Typography>
                 <Box sx={{ mt: 2 }}>
-                  <IconButton sx={{ color: 'white' }}><Facebook /></IconButton>
-                  <IconButton sx={{ color: 'white' }}><Twitter /></IconButton>
-                  <IconButton sx={{ color: 'white' }}><Instagram /></IconButton>
+                  <IconButton> <a href="https://qr.me-qr.com/link-list/yxPPXf8Z/show" target='blank' style={{ color: "white" }}><WhatsApp /></a></IconButton>
+                  <IconButton>  <a href="https://qr.me-qr.com/link-list/yxPPXf8Z/show" target='blank' style={{ color: "white" }}> <Instagram /> </a></IconButton>
+                  <IconButton> <a href="https://qr.me-qr.com/link-list/yxPPXf8Z/show" target='blank' style={{ color: "white" }}> <RateReviewIcon /></a></IconButton>
                 </Box>
               </Box>
 
@@ -60,6 +61,7 @@ const Footer = () => {
                 <Typography sx={{ fontFamily: 'Josefin Slab', cursor: "pointer" }}>Contact Us</Typography>
               </Box>
 
+
             </Grid>
 
             {/* right */}
@@ -73,10 +75,17 @@ const Footer = () => {
                 <Typography sx={{ fontFamily: 'Josefin Slab' }}>TIMINGS: Mon - Sat |9 AM - 7 PM</Typography>
               </Box>
             </Grid>
+
+
+            <Grid size={12}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography sx={{ fontFamily: "Josefin Slab" }}> © 2025 YourEventCo. All rights reserved</Typography>
+                <Typography sx={{ fontFamily: "Josefin Slab" }}> Privacy Policy | Terms & Conditions </Typography>
+              </Box>
+            </Grid>
           </Grid>
         </Box>
       </motion.div>
-
     </>
   )
 }

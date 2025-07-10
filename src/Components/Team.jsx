@@ -84,7 +84,7 @@ const TeamSection = () => {
                     ? {
                       rotateX: 0,
                       opacity: 1,
-                      transition: { duration: 1, delay: index * 1 }
+                      transition: { duration: 1, delay: index * 0.3 }
                     }
                     : {}
                 }

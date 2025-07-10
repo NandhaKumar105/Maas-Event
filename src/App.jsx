@@ -15,11 +15,11 @@ function App() {
      <section id="service"><Service/></section>
     <section id="gallery"><Gallery/></section> 
      <Screen/>
-    <Spotlight/>
+    <Spotlight/> 
    <section id="team"><Team/></section>
     <section id="testimonial"><Testimonial/></section>
      <section id="contact"><Contact/></section>
-    <Footer/>
+    <Footer/> 
      
     </>
   );

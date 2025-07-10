@@ -26,12 +26,12 @@ const getRandomStyle = () => {
 
 const MotionTypography = motion(Typography);
 
-const SpotlightCollage = () => {
+const Spotlight = () => {
   return (
     <Box
       sx={{
         position: 'relative',
-        height: '70vh',
+        height: '80vh',
         overflow: 'hidden',
         display: 'flex',
         justifyContent: 'center',
@@ -57,7 +57,7 @@ const SpotlightCollage = () => {
             whileTap={{
               opacity: 1,
               y: 20,
-              transition: { duration: 0.5 },
+              transition: { duration: 0.1 },
             }}
             sx={{
               position: 'absolute',
@@ -136,5 +136,5 @@ const SpotlightCollage = () => {
   );
 };
 
-export default SpotlightCollage;
+export default Spotlight;
 

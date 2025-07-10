@@ -18,23 +18,26 @@ const services = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12];
 
 const Service = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { threshold: 1.0 });
+  const isInView = useInView(containerRef, { once: false });
   const [spread, setSpread] = useState(false);
+  const [straighten, setStraighten] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     if (isInView) {
-      setSpread(false); // Reset
-      const timer = setTimeout(() => setSpread(true), 1500); // Delay for effect
-      return () => clearTimeout(timer);
+      setSpread(false);
+      setStraighten(false);
+
+      const spreadTimer = setTimeout(() => setSpread(true), 1000);
+      const straightenTimer = setTimeout(() => setStraighten(true), 2300);
+
+      return () => {
+        clearTimeout(spreadTimer);
+        clearTimeout(straightenTimer);
+      };
     }
   }, [isInView]);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => setSpread(true), 2000);
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   return (
     <>
@@ -46,10 +49,9 @@ const Service = () => {
             fontSize: { xs: '2.5rem', sm: '2.5rem', md: '3.5rem', lg: '6rem' },
             color: '#a00000',
             textAlign: { xs: 'center', md: 'left' },
-            maxWidth: { xs: '100%', md: '50%' },
             marginLeft: { lg: '6%', xs: '0%' },
             letterSpacing: '8px',
-            marginTop: { xs: '80px', md: '0px',sm:"120px",lg:"0px",xl:"0px" }
+            mt: { xs: '80px', sm: '120px', md: '0px' }
           }}
         >
           ROYAL SERVICE
@@ -60,50 +62,56 @@ const Service = () => {
         <Box
           sx={{
             display: 'flex',
-            flexWrap: spread ? 'wrap' : 'nowrap',
+            flexWrap: 'wrap',
             justifyContent: 'center',
             alignItems: 'center',
-            overflowX: spread ? 'visible' : 'visible',
-            // transition: 'all 0.2s ease-in-out',
-            gap: 0,
+            gap: spread ? '20px' : '0px',
+            transition: 'gap 0.3s ease-in-out',
             maxWidth: '100%',
           }}
         >
-          {services.map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{
-                opacity: 0,
-                rotateZ: 20,
-                scale: 0.2,
-              }}
-              animate={{
-                opacity: 1,
-                rotateZ: spread ? 0 : -45,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.2,
-                // delay: i * 0.1,
-              }}
-              style={{
-                margin: spread ? '10px' : `0 -60px`,
-                flex: spread ? '1 0 calc(16.66% - 20px)' : '0 0 auto',
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <img
-                src={img}
-                alt={`service-${i}`}
-                style={{
-                  width: isMobile ? '140px' : '170px',
-                  height: 'auto',
-
+          {services.map((img, i) => {
+            const isTopRow = i < 6;
+            return (
+              <motion.div
+                key={i}
+                initial={{
+                  opacity: 0,
+                  scale: 0.3,
+                  rotateZ: -40,
+                  y: 0,
                 }}
-              />
-            </motion.div>
-          ))}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  rotateZ: straighten ? 0 : -25,
+                  y: spread ? (isTopRow ? -30 : -30) : 0, // step 2 → up/down
+                }}
+                transition={{
+                  duration: 0.3,
+                  delay: i * 0.05,
+                  ease: 'easeInOut',
+                }}
+                style={{
+                  flex: '0 0 calc(16.66% - 20px)',
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}
+              >
+                <img
+                  src={img}
+                  alt={`service-${i}`}
+                  style={{
+                    width: isMobile ? '130px' : '160px',
+                    height: 'auto',
+                    boxShadow: 'none',
+                    backgroundColor: 'transparent',
+
+                  }}
+                />
+              </motion.div>
+            );
+          })}
         </Box>
       </Box>
     </>
@@ -111,4 +119,5 @@ const Service = () => {
 };
 
 export default Service;
+
 

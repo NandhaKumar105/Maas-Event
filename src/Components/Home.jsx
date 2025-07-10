@@ -7,7 +7,7 @@ import pic3 from "../assets/home/pic3.png";
 import pic4 from "../assets/home/pic4.png";
 import logo from "../assets/home/logo.png";
 import light from '../assets/home/light.png'
-import image from "../assets/home/image.jpeg";
+import image from "../assets/home/Ellipse 1.png";
 import MenuIcon from '@mui/icons-material/Menu';
 
 
@@ -37,7 +37,7 @@ const Home = () => {
       // Trigger logo zoom + white fade
       endTimer = setTimeout(() => {
         setRevealStep(true);
-      }, 4500); 
+      }, 4500);
 
       // Finish animation and move forward
       const finish = setTimeout(() => {
@@ -139,7 +139,7 @@ const Home = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    backgroundColor: '#fff', 
+                    backgroundColor: '#fff',
                     zIndex: 2,
                   }}
                 >
@@ -152,7 +152,7 @@ const Home = () => {
                     transition={{ duration: 0.5 }}
                     sx={{
                       position: 'absolute',
-                      width: {xs:'80vw',md:'30vw',sm:'30vw',xl:'30vw',lg:'30vw'},
+                      width: { xs: '80vw', md: '30vw', sm: '30vw', xl: '30vw', lg: '30vw' },
                       height: 'auto',
                       zIndex: 2,
                     }}
@@ -165,16 +165,18 @@ const Home = () => {
                     initial={{ opacity: 1 }}
                     animate={
                       revealStep
-                        ? { opacity: 0, x: 100, y: 100 }  
+                        ? { opacity: 0, x: 100, y: 100 }
                         : { opacity: 1, x: 0, y: 0 }
                     }
                     transition={{ duration: 0.5 }}
                     sx={{
                       position: 'relative',
                       top: '8px',
-                      width: {xs:'30vw',md:'11vw',sm:'11vw',lg:'11vw',xl:'11vw'},
-                      height: 'auto',
+                      width: { xs: '30vw', md: '11vw', sm: '11vw', lg: '11vw', xl: '11vw' },
+                      height: '158px',
                       zIndex: 3,
+                      opacity: "0.5"
+
                     }}
                   />
                 </Box>
@@ -198,7 +200,7 @@ const Home = () => {
 
                   <Stack direction='row' spacing={4} sx={{ display: { xs: "none", sm: 'flex' } }}>
                     {menuItems.map((item) => (
-                      <Link key={item.label} href={item.href} sx={{ cursor: 'pointer', fontSize: { sm: '14px',xl:"18px" }, color: "#A00705", fontWeight: "bold", textDecoration: "none" }}>
+                      <Link key={item.label} href={item.href} sx={{ cursor: 'pointer', fontSize: { sm: '14px', xl: "18px" }, color: "#A00705", fontWeight: "bold", textDecoration: "none" }}>
                         {item.label}
                       </Link>
                     ))}
@@ -216,15 +218,15 @@ const Home = () => {
 
           {/* Mobile Drawer */}
           <Drawer anchor="top" open={drawerOpen} onClose={toggleDrawer(false)}>
-            <Box sx={{ height: 250, color: "#A00705", fontWeight: "bold", backgroundColor: '#FEE9D8', width: '100vw',}} onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
-            
-                {menuItems.map((text) => (
-                   <List>
-                  <Link sx={{color:"#A00705",textDecoration:"none",textAlign:"center" }} button key={text.label} href={text.href}>
+            <Box sx={{ height: 250, color: "#A00705", fontWeight: "bold", backgroundColor: '#FEE9D8', width: '100vw', }} onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+
+              {menuItems.map((text) => (
+                <List>
+                  <Link sx={{ color: "#A00705", textDecoration: "none", textAlign: "center" }} button key={text.label} href={text.href}>
                     <ListItemText primary={text.label} />
                   </Link>
-                   </List>
-                ))}
+                </List>
+              ))}
             </Box>
           </Drawer>
         </div>
@@ -235,7 +237,7 @@ const Home = () => {
         {/* HANGING LIGHT IMAGE */}
         <Box sx={{ position: 'absolute', top: 0, right: 0, zIndex: 1, width: { xs: '100%', md: 'auto', lg: "58%" }, maxHeight: { xs: '300px', md: '600px' }, marginTop: "-10px" }}>
           <Box component={motion.img} src={light} alt="light" initial={{ opacity: 0, y: 0 }} whileInView={{ opacity: 1, y: 100 }}
-            transition={{ duration: 2 }} sx={{ width: { xs: "100%", md: "90%", xl: "100%" }, height:"auto" , objectFit: "contain", marginLeft: { xs: "0", md: "10%" } }} />
+            transition={{ duration: 2 }} sx={{ width: { xs: "100%", md: "90%", xl: "100%" }, height: "auto", objectFit: "contain", marginLeft: { xs: "0", md: "10%" } }} />
         </Box>
 
         {/* TEXT & BUTTON */}
