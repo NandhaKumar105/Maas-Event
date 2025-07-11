@@ -94,7 +94,8 @@ const Spotlight = () => {
             fontFamily: 'Malevolent, cursive',
             fontSize: { xs: '3rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem', xl: '6.5rem' },
             color: 'black',
-            marginRight: { md: "300px", xs: "160px", sm: "300px" }
+            marginRight: { md: "300px", xs: "160px", sm: "300px" },
+            letterSpacing:"3px"
           }}
         >
           Spotlight
@@ -126,7 +127,8 @@ const Spotlight = () => {
             fontSize: { xs: '3rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem', xl: '6.5rem' },
             color: 'black',
             mt: 1,
-            marginLeft: { md: "300px", xs: "190px", sm: "300px" }
+            marginLeft: { md: "300px", xs: "190px", sm: "300px" },
+            letterSpacing:"3px"
           }}
         >
           Pics

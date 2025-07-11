@@ -40,7 +40,7 @@ const TeamSection = () => {
   const isInView = useInView(ref, { once: false, margin: "-100px" }); // Re-triggers when re-entered
 
   return (
-    <Box ref={ref} sx={{ p: 5, minHeight: "100vh", textAlign: "center" }}>
+    <Box sx={{ p: 5,marginTop:{lg:"80px",xs:"-50px" }, textAlign: "center" }}>
 
       <Typography sx={{
         fontFamily: "Malevolent, cursive", color: "#990000",
@@ -73,10 +73,10 @@ const TeamSection = () => {
 
 
 
-      <Grid container spacing={4} justifyContent="center">
+      <Grid ref={ref} container spacing={4} justifyContent="center">
         {teamMembers.map((member, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Box sx={{ perspective: "2000px", display: "flex", justifyContent: "center" }}>
+            <Box  sx={{ perspective: "2000px", display: "flex", justifyContent: "center" }}>
               <motion.div
                 initial={{ rotateX: 80, rotateY: 0, opacity: 0.8 }}
                 animate={
@@ -84,7 +84,7 @@ const TeamSection = () => {
                     ? {
                       rotateX: 0,
                       opacity: 1,
-                      transition: { duration: 1, delay: index * 0.3 }
+                      transition: { duration: 1, delay: index * 0.6 }
                     }
                     : {}
                 }

@@ -171,9 +171,9 @@ const Home = () => {
                     transition={{ duration: 0.5 }}
                     sx={{
                       position: 'relative',
-                      top: {xs:"3.3px",lg:'8px'},
+                      top: {xs:"3.5px",lg:'8px'},
                       width: { xs: '30vw',sm: '11vw', md: '11vw', lg: '11vw', xl: '11vw'},
-                      height: {xs:"107px",sm:"80px",md:"108px",lg:'150px',xl:"158px"},
+                      height: {xs:"112px",sm:"80px",md:"108px",lg:'150px',xl:"158px"},
                       zIndex: 3,
                       opacity: "0.5"
 

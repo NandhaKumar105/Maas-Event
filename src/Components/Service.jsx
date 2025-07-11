@@ -41,7 +41,7 @@ const Service = () => {
 
   return (
     <>
-      <Box ref={containerRef}>
+      <Box>
         <Typography
           variant="h6"
           sx={{
@@ -58,7 +58,7 @@ const Service = () => {
         </Typography>
       </Box>
 
-      <Box sx={{ px: 2, py: 4 }}>
+      <Box  ref={containerRef} sx={{ px: 2, py: 4 }}>
         <Box
           sx={{
             display: 'flex',
