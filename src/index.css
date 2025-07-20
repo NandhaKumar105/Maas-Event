@@ -1,8 +1,11 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
-  position: relative; /* ✅ This fixes the Framer Motion warning */
+  position: relative;
+  /* ✅ This fixes the Framer Motion warning */
 }
 
 
@@ -32,10 +35,27 @@ select:focus {
   outline: none !important;
   box-shadow: none !important;
   border-color: #ced4da !important;
+
+}
+
+body {
+  background-color: #FFF8ED;
+}
+
+.jaldi-regular {
+  font-family: "Jaldi", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sendus {
+  border-color: #a00000;
+  color: #a00000;
   
 }
 
-body
-{
-  background-color: #FFF8ED;
+.sendus:hover {
+  background-color: #a00000;
+  color: white;
+
 }

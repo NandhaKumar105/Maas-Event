@@ -173,7 +173,8 @@ const Home = () => {
                       position: 'relative',
                       top: {xs:"3.5px",lg:'8px'},
                       width: { xs: '30vw',sm: '11vw', md: '11vw', lg: '11vw', xl: '11vw'},
-                      height: {xs:"112px",sm:"80px",md:"108px",lg:'150px',xl:"158px"},
+                      // height: {xs:"112px",sm:"80px",md:"108px",lg:'150px',xl:"275px"},
+                      height:"auto",
                       zIndex: 3,
                       opacity: "0.5"
 
@@ -200,7 +201,7 @@ const Home = () => {
 
                   <Stack direction='row' spacing={4} sx={{ display: { xs: "none", sm: 'flex' } }}>
                     {menuItems.map((item) => (
-                      <Link key={item.label} href={item.href} sx={{ cursor: 'pointer', fontSize: { sm: '14px', xl: "18px" }, color: "#A00705", fontWeight: "bold", textDecoration: "none" }}>
+                      <Link key={item.label} href={item.href} sx={{ cursor: 'pointer', fontSize: { sm: '14px', xl: "17px" }, color: "#A00705", fontWeight: "bold", textDecoration: "none" }}>
                         {item.label}
                       </Link>
                     ))}

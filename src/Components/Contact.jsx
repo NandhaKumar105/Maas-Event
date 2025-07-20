@@ -42,23 +42,23 @@ const Contact = () => {
               {/* Name Field */}
               <div className="col-md-6">
                 <label className="form-label contact-label">Name</label>
-                <input type="text" className="form-control contact-input" placeholder="Redrixx" style={{ backgroundColor: "#FEE9D8" }} />
+                <input type="text" className="form-control contact-input" placeholder="Redrixx" style={{ backgroundColor: "#FFF8ED" }} />
               </div>
 
               {/* Phone Field */}
               <div className="col-md-6">
                 <label className="form-label contact-label">Phone</label>
-                <input type="number" className="form-control contact-input" placeholder="+91 123456789" style={{ backgroundColor: "#FEE9D8" }} />
+                <input type="number" className="form-control contact-input" placeholder="+91 123456789" style={{ backgroundColor: "#FFF8ED" }} />
               </div>
 
               {/*help  */}
               <div className="mb-3">
                 <label className="form-label">How can we help?</label>
-                <textarea className="form-control" id="comments" rows="3" placeholder="Tell me your need" style={{ backgroundColor: "#FEE9D8" }} required></textarea>
+                <textarea className="form-control" id="comments" rows="3" placeholder="Tell me your need" style={{ backgroundColor: "#FFF8ED" }} required></textarea>
               </div>
 
               <div className="text-center">
-                <button type="submit" className=" btn px-4" style={{ backgroundColor: "#FEE9D8", width: "280px" }}>Send to us!</button>
+                <button type="submit" className=" btn px-4 sendus" style={{ width: "280px" }}>Send to us!</button>
               </div>
 
             </div>

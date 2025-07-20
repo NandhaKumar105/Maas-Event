@@ -19,13 +19,13 @@ const Footer = () => {
 
       <motion.div initial={{ opacity: 0, y: 100 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}>
 
-        <Box ref={ref} sx={{ backgroundColor: "brown", color: "white", py: 5, px: { xs: 2, sm: 4 } }}>
+        <Box ref={ref} sx={{ backgroundColor: "#A00705", color: "white", py: 5, px: { xs: 2, sm: 4 } }}>
           <Grid container spacing={4} justifyContent="center" textAlign="center">
 
             {/* left */}
 
-            <Grid item xs={12} sm={6} md={4}>
-              <Box sx={{ textAlign: { xs: 'center', md: 'left' }, marginTop: "30px" }}>
+            <Grid item xs={12} sm={6} md={6}>
+              <Box sx={{ textAlign: { xs: 'center', md: 'left' }, marginTop: "30px",marginLeft:{md:"30px",sm:"10px"} }}>
                 <img src={logo} width={100} />
                 <Typography sx={{ fontFamily: 'Josefin Slab' }}>"Turning Dreams Into Celebration"</Typography>
                 <Box sx={{ mt: 2 }}>
@@ -41,7 +41,7 @@ const Footer = () => {
             {/* center */}
 
             <Grid item xs={6} sm={3} md={4} >
-              <Box sx={{ textAlign: { xs: 'left', md: 'center' }, marginTop: "30px" }}>
+              <Box sx={{ textAlign: { xs: 'left', md: 'center' }, marginTop: "30px",marginLeft:{xl:"100px",sm:"16px",md:"40px"} }}>
 
                 <section id="home"> <Typography sx={{ fontFamily: 'Josefin Slab', cursor: "pointer" }}
                   onClick={() => { document.getElementById("home").scrollIntoView({ behavior: "smooth" }) }}>Home</Typography></section>
@@ -68,7 +68,7 @@ const Footer = () => {
 
             <Grid item xs={6} sm={3} md={4}>
 
-              <Box sx={{ textAlign: { xs: 'left' }, marginTop: "30px", }} >
+              <Box sx={{ textAlign: { xs: 'left' }, marginTop: "30px",marginLeft:{xl:"80px",sm:"0px",md:"50px"} }} >
                 <Typography sx={{ fontFamily: 'Josefin Slab' }}>ADDRESS:123 Dream Avenue, Event City, IN</Typography>
                 <Typography sx={{ fontFamily: 'Josefin Slab' }}>EMAIL: hello@youreventco.com</Typography>
                 <Typography sx={{ fontFamily: 'Josefin Slab' }}>PHONE: +91 9876543210</Typography>
